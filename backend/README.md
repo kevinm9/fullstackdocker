@@ -11,12 +11,11 @@
 
 configurado para mediante el docker-compose.yml se envie las variables de entorno y en caso de que estas no lleguen tiene valores por default que se puede ejecutar sin problema
 
-    spring.datasource.url=jdbc:mysql://localhost:3306/test
-    spring.datasource.username=${MYSQL_USER:root}
-    spring.datasource.password=${MYSQL_PASSWORD:root}
-    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-    spring.jpa.hibernate.ddl-auto=update
-
+```
+spring.datasource.url=${DATABASE_URL\:jdbc\:mysql\://db\:3306/test}
+spring.datasource.username=${MYSQL_USER\:root}
+spring.datasource.password=${MYSQL_PASSWORD\:root}
+```
   
 
 una vez configurada y creada la base de dato en este caso `test`ya que esa se configuro en el `application.properties`
@@ -26,8 +25,6 @@ destacar que por default si en la variables de entorno no existen tomara este as
 spring.datasource.url=jdbc:mysql://localhost:3306/test
 spring.datasource.username=root
 spring.datasource.password=root
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=update
 ```
   
 
@@ -46,9 +43,6 @@ en mi caso uso `laragon` `https://laragon.org/download/index.html` pero pueden u
     
     spring.datasource.password=
     
-    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-    
-    spring.jpa.hibernate.ddl-auto=update
 
   
 
