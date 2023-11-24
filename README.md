@@ -2,6 +2,8 @@
   
 # levantar aplicativo con DOCKER (docker-compose.yml)
 
+en caso de errores seguir las instrucciones de levantar el aplicativo sin docker 
+
   ## Requisitos
 - DOCKER
 
@@ -28,3 +30,14 @@ abrir los siguientes link:
 
   ## levantar proyecto sin docker
   en cada carpeta backend y frotend estan las instrucciones para levantar en ambientes de desarollo 
+
+  - recordar crear la base de datos
+  - al iniciar el spring boot crea las tablas de las entidades
+  - se llena la bd con registros automaticamente al iniciar la app de spring con del data.sql 
+
+
+
+
+
+
+  
