@@ -1,0 +1,41 @@
+<button class="btn btn-primary mt-3" (click)="regresar()">Regresar</button>
+<div class="container mt-4">
+  <h2>Cursos disponible del profesor {{ Profesor?.nombres }}</h2>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Total Docu</th>
+        <th>Max Duración (horas)</th>
+        <th>Max Cant. Alumnos</th>
+        <th>Opcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let curso of cursos"
+        [class.matriculado]="userloginid | isRegistered : curso"
+      >
+        <td>{{ curso.id }}</td>
+        <td>{{ curso.nombre }}</td>
+        <td>{{ curso.totaldocu }}</td>
+        <td>{{ curso.maxhorduracion }}</td>
+        <td>{{ curso.maxcantalumnos }}</td>
+        <td>
+          <div *ngIf="curso.alumnos.length < curso.maxcantalumnos; else maxdeestudiantes">
+              <span *ngIf="userloginid | isRegistered : curso; else registroBtn">Registrado</span>
+              <ng-template #registroBtn>
+                <button class="btn btn-primary" (click)="registrarse(curso.id,userloginid)">
+                  Registrarse
+                </button>
+              </ng-template>
+          </div>
+          <ng-template #maxdeestudiantes>
+             <span *ngIf="userloginid | isRegistered : curso">Registrado</span>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

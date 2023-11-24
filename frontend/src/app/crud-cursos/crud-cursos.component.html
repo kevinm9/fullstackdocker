@@ -1,0 +1,81 @@
+<div class="container">
+  <h1>Curso</h1>
+  <form [formGroup]="cursoForm">
+
+    <div class="form-group">
+      <label for="nombre">nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control">
+      <div *ngIf="cursoForm.get('nombre')?.hasError('required') && cursoForm.get('nombre')?.touched" class="text-danger">
+        El nombre es requerido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="totaldocu">total de documento:</label>
+      <input type="text" id="totaldocu" formControlName="totaldocu" class="form-control">
+      <div *ngIf="cursoForm.get('totaldocu')?.hasError('required') && cursoForm.get('totaldocu')?.touched" class="text-danger">
+        El total de documento es requerido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="maxhorduracion">maximo de horas de duracion:</label>
+      <input type="text" id="maxhorduracion" formControlName="maxhorduracion" class="form-control">
+      <div *ngIf="cursoForm.get('maxhorduracion')?.hasError('required') && cursoForm.get('maxhorduracion')?.touched" class="text-danger">
+        El maximo de horas de duracion es requerido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="maxcantalumnos">cantidad maxima de alumnos:</label>
+      <input type="text" id="maxcantalumnos" formControlName="maxcantalumnos" class="form-control">
+      <div *ngIf="cursoForm.get('maxcantalumnos')?.hasError('required') && cursoForm.get('maxcantalumnos')?.touched" class="text-danger">
+        La cantidad maxima de alumnos es requerido.
+      </div>
+    </div>
+
+
+
+
+    <div class="d-flex justify-content-end">
+      <button (click)="guardar()" class="btn btn-primary">
+        {{ modoEdicion ? "Editar" : "Agregar" }}
+      </button>
+      <button class="btn btn-outline-danger ml-2" (click)="limpiarFormulario()">
+        Limpiar Campos
+      </button>
+    </div>
+
+
+  </form>
+
+  <div class="table-responsive">
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>total documento</th>
+        <th>max de horas</th>
+        <th>max de alumnos</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of cursos">
+        <td >{{ curso.id }}</td>
+        <td>{{ curso.nombre }}</td>
+        <td>{{ curso.totaldocu }}</td>
+        <td>{{ curso.maxhorduracion }}</td>
+        <td>{{ curso.maxcantalumnos }}</td>
+        <td>
+          <button class="btn btn-info" (click)="editar(curso)">Editar</button>
+          <button class="btn btn-danger" (click)="eliminar(curso.id)">Eliminar</button>
+          <button class="btn btn-warning" (click)="clonarFormulario(curso)">Clonar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>

@@ -1,0 +1,168 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="nombres">nombres</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nombres"
+          [(ngModel)]="form.nombres"
+          required
+          minlength="3"
+          maxlength="20"
+          #nombres="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nombres.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="nombres.errors && f.submitted">
+          <div *ngIf="nombres.errors['required']">nombres is required</div>
+          <div *ngIf="nombres.errors['minlength']">
+            nombres must be at least 3 characters
+          </div>
+          <div *ngIf="nombres.errors['maxlength']">
+            nombres must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">correo</label>
+        <input
+          type="correo"
+          class="form-control"
+          name="correo"
+          [(ngModel)]="form.correo"
+          required
+          correo
+          #correo="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && correo.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="correo.errors && f.submitted">
+          <div *ngIf="correo.errors['required']">correo is required</div>
+          <div *ngIf="correo.errors['correo']">
+            correo must be a valid correo address
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="tipodeusuario">tipodeusuario</label>
+        <select
+          class="form-control"
+          name="tipodeusuario"
+          [(ngModel)]="form.tipodeusuario"
+          required
+          #tipodeusuario="ngModel"
+          (change)="changelboxtipodeusuario()"
+        >
+          <option [value]="item" *ngFor="let item of lista">{{ item }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="nivelacademico">nivelacademico</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nivelacademico"
+          [(ngModel)]="form.nivelacademico"
+          required
+          minlength="3"
+          maxlength="20"
+          #nivelacademico="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nivelacademico.errors }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="nivelacademico.errors && f.submitted"
+        >
+          <div *ngIf="nivelacademico.errors['required']">
+            nivelacademico is required
+          </div>
+          <div *ngIf="nivelacademico.errors['minlength']">
+            nivelacademico must be at least 3 characters
+          </div>
+          <div *ngIf="nivelacademico.errors['maxlength']">
+            nivelacademico must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="motivoderegistro">motivoderegistro</label>
+        <input
+          disabled="true"
+          type="text"
+          class="form-control"
+          name="motivoderegistro"
+          [(ngModel)]="form.motivoderegistro"
+          required
+          minlength="3"
+          maxlength="20"
+          #motivoderegistro="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && motivoderegistro.errors }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="motivoderegistro.errors && f.submitted"
+        >
+          <div *ngIf="motivoderegistro.errors['required']">
+            motivoderegistro is required
+          </div>
+          <div *ngIf="motivoderegistro.errors['minlength']">
+            motivoderegistro must be at least 3 characters
+          </div>
+          <div *ngIf="motivoderegistro.errors['maxlength']">
+            motivoderegistro must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Registrar</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+
+    <div class="form-group" *ngIf="isSuccessful" (click)="reset()">
+      <button class="btn btn-primary btn-block">Nuevo registro</button>
+    </div>
+  </div>
+</div>
