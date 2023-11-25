@@ -23,8 +23,9 @@ en caso de errores seguir las instrucciones de levantar el aplicativo sin docker
 
  mensaje x consola  del correcto despliegue 
 
- 
- `fullstackdocker-backend-1   | 2023-11-24T23:46:36.337Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms`
+`Started BackendApplication in 12.233 seconds (process running for 13.244)`
+o
+`Completed initialization in 3 ms`
 
 
     
