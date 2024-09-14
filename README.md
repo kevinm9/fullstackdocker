@@ -50,7 +50,9 @@ abrir los siguientes link:
 
 
 
-
+****************new release ******************
+se actualizo typescript y node del contenedor para que se pueda levantar
+[![captura](https://github.com/kevinm9/fullstackdocker/blob/nuevocambio1792024/captura.png  "captura")](https://github.com/kevinm9/fullstackdocker/blob/nuevocambio1792024/captura.png  "captura")
 
 
   
