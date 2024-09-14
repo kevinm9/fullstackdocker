@@ -50,9 +50,9 @@ abrir los siguientes link:
 
 
 
-****************new relase
+****************new release ******************
 se actualizo typescript y node del contenedor para que se pueda levantar
-[![captura](https://raw.githubusercontent.com/kevinm9/crudangulartn/  "captura")](https://raw.githubusercontent.com/kevinm9/crudangulartn/dockerangular/foto1.png  "captura")
+[![captura](https://github.com/kevinm9/fullstackdocker/blob/nuevocambio1792024/captura.png  "captura")](https://github.com/kevinm9/fullstackdocker/blob/nuevocambio1792024/captura.png  "captura")
 
 
   
