@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Persona } from '../models/persona.model';
 import { Login } from '../models/login.model';
+import { environment } from '../../environments/environment';
 
-const AUTH_API = 'http://localhost:8080/api';
+const AUTH_API = `${environment.apiUrl}`;
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -53,7 +54,7 @@ export class AuthService {
   }
 
   getPublicContent(): Observable<any> {
-    return this.http.get('http://localhost:8080', {
+    return this.http.get(`${AUTH_API}/test`, {
       responseType: 'text',
     });
   }

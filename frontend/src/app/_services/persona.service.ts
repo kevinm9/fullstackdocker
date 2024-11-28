@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Persona } from '../models/persona.model';
 
+import { environment } from '../../environments/environment';
 
-const AUTH_API = 'http://localhost:8080/api/personas';
+const AUTH_API = `${environment.apiUrl}/personas`;
 
 const httpOptions = {
   headers: new HttpHeaders({

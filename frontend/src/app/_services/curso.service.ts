@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Curso } from '../models/curso.model';
+import { environment } from '../../environments/environment';
 
-const baseUrl = 'http://localhost:8080/api/cursos';
+const baseUrl = `${environment.apiUrl}/cursos`;
 
 @Injectable({
   providedIn: 'root',

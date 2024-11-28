@@ -3,8 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Persona } from '../models/persona.model';
 
-
-const API_URL = 'http://localhost:8080/api/test/';
+import { environment } from '../../environments/environment';
+const API_URL = `${environment.apiUrl}/test/`;
+const AUTH_API = `${environment.apiUrl}/personas/`;
+const TEXT_URL = `${environment.apiUrl}/test`;
 
 @Injectable({
   providedIn: 'root',
@@ -13,11 +15,11 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUser(id:any): Observable<Persona> {
-    return this.http.get<Persona>('http://localhost:8080/api/personas/'+id);
+    return this.http.get<Persona>(`${AUTH_API}/${id}`);
   }
 
   getPublicContent(): Observable<any> {
-    return this.http.get('http://localhost:8080/', {
+    return this.http.get(TEXT_URL, {
       responseType: 'text',
     });
   }

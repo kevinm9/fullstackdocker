@@ -4,7 +4,7 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: mysql
+    container_name: mysql-container # Nombre del contenedor para el servicio db
     ports:
       - 3306:3306
 #    descomentar para crear un volumen de datos para nuestra base de datos
@@ -26,6 +26,7 @@ services:
     depends_on:
       - db
     build: ./backend
+    container_name: backend-container # Nombre del contenedor para el servicio backend
     restart: always
     environment:
      - DATABASE_URL=jdbc:mysql://db:3306/test
@@ -41,12 +42,14 @@ services:
     depends_on:
       - db
     build: ./frontend
+    container_name: frontend-container # Nombre del contenedor para el servicio frontend
+    environment:
+      - API_URL=http://backend-container:8080/api # URL de tu backend
     ports:
-      - 4200:80
+      - 80:80
 #    networks:
 #      - app-network
 
 #networks:
 #  app-network:
 #    driver: bridge
-    

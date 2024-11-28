@@ -32,10 +32,10 @@ public class HomeController {
     	return new ResponseEntity<>(personaService.login(loginDTO), HttpStatus.ACCEPTED);
     }
 	
-    @GetMapping("/")
+    @GetMapping("/test")
     @ResponseBody
     public String index() {
-        return "Hello World!";
+        return "Hello World from backend springboot!";
     }
 
 }

@@ -2,9 +2,16 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+export interface Environment {
+  production: boolean;
+  apiUrl: string;
+}
+
+export const environment: Environment = {
+  production: false, // O true si es un entorno de producción
+  apiUrl: window['env']?.apiUrl || 'http://localhost:8080/api' // Valor por defecto si no se establece la variable de entorno
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
