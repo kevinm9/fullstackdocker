@@ -55,4 +55,17 @@ se actualizo typescript y node del contenedor para que se pueda levantar
 [![captura](https://github.com/kevinm9/fullstackdocker/blob/nuevocambio1792024/captura.png  "captura")](https://github.com/kevinm9/fullstackdocker/blob/nuevocambio1792024/captura.png  "captura")
 
 
-  
+si se levanta de nuevo el contenedor del backend comentar las variables
+
+    spring.jpa.defer-datasource-initialization=true
+    spring.sql.init.mode=always
+
+ ya que estas ejecutan el query de la bd y da conclictos por los registros
+
+    #configurar url de frotend 
+    app.cors.allowed-origin=http://vps-4560746-x.dattaweb.com
+
+
+  docker compose up --build
+
+
