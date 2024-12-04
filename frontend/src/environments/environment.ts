@@ -1,15 +1,9 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
-export interface Environment {
-  production: boolean;
-  apiUrl: string;
-}
-
-export const environment: Environment = {
+export const environment = {
   production: false, // O true si es un entorno de producción
-  apiUrl: window['env']?.apiUrl || 'http://localhost:8080/api' // Valor por defecto si no se establece la variable de entorno
+  apiUrl: 'http://vps-4560746-x.dattaweb.com:8080/api' // Valor por defecto si no se establece la variable de entorno
 };
 
 

@@ -20,7 +20,6 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials="true")
 public class HomeController {
 	
 	@Autowired
@@ -32,7 +31,7 @@ public class HomeController {
     	return new ResponseEntity<>(personaService.login(loginDTO), HttpStatus.ACCEPTED);
     }
 	
-    @GetMapping("/test")
+    @GetMapping("/api/test")
     @ResponseBody
     public String index() {
         return "Hello World from backend springboot!";

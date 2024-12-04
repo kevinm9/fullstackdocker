@@ -43,8 +43,6 @@ services:
       - db
     build: ./frontend
     container_name: frontend-container # Nombre del contenedor para el servicio frontend
-    environment:
-      - API_URL=http://backend-container:8080/api # URL de tu backend
     ports:
       - 80:80
 #    networks:

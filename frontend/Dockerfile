@@ -12,7 +12,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/angular-14-jwt-auth /usr/share/nginx/html
 
 # Copiar el archivo de configuración de la variable de entorno
-COPY ./src/assets/environment.js /usr/share/nginx/html/assets/environment.js
 
 # Exponer el puerto 80
 EXPOSE 80

@@ -4,6 +4,6 @@ export interface Environment {
 }
 
 export const environment: Environment = {
-  production: true, // Valor para producción
-  apiUrl: window['env']?.apiUrl || 'http://localhost:8080/api' // Valor por defecto en producción si no se define la variable de entorno
+  production: true, // O true si es un entorno de producción
+  apiUrl: 'http://vps-4560746-x.dattaweb.com:8080/api' // Valor por defecto si no se establece la variable de entorno
 };
