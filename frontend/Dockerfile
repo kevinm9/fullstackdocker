@@ -7,8 +7,8 @@ COPY . .
 RUN npm run build
 
 # Etapa de producción con Nginx
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
+FROM nginx:latest
+COPY /nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/dist/angular-14-jwt-auth /usr/share/nginx/html
 
 # Copiar el archivo de configuración de la variable de entorno
@@ -17,4 +17,4 @@ COPY --from=build /usr/src/app/dist/angular-14-jwt-auth /usr/share/nginx/html
 EXPOSE 80
 
 # Comando por defecto para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]

@@ -32,6 +32,7 @@ services:
      - DATABASE_URL=jdbc:mysql://db:3306/test
      - MYSQL_USER=root
      - MYSQL_PASSWORD=root
+     - APPSPA=http://vps-4560746-x.dattaweb.com
 #    - DATABASE_URL=jdbc:mysql://db:3306/test?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
     ports:
       - 8080:8080
